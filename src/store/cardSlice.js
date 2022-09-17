@@ -8,6 +8,8 @@ export const fetchCards = createAsyncThunk(
     }
 );
 
+const unique = new Set();
+
 const cardSlice = createSlice({
     name: 'cards',
     initialState: {
@@ -35,13 +37,14 @@ const cardSlice = createSlice({
         },
         [fetchCards.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
-            state.cards.push(...(action.payload.map(
+            state.cards.push(...(action.payload.filter(
                 card => {
+                    if(unique.has(card.id)) return false;
+                    unique.add(card.id);
                     card.liked = false;
-                    return card;
+                    return true;
                 }
             )));
-            // state.cards = action.payload;
         },
     },
 });
