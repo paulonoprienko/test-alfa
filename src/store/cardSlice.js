@@ -37,14 +37,12 @@ const cardSlice = createSlice({
         },
         [fetchCards.fulfilled]: (state, action) => {
             state.status = 'fulfilled';
-            state.cards.push(...(action.payload.filter(
-                card => {
-                    if(unique.has(card.id)) return false;
-                    unique.add(card.id);
-                    card.liked = false;
-                    return true;
-                }
-            )));
+            state.cards.push(...(action.payload.filter(card => {
+                if(unique.has(card.id)) return false;
+                unique.add(card.id);
+                card.liked = false;
+                return true;
+            })));
         },
     },
 });

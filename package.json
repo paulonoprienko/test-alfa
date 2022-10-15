@@ -1,6 +1,6 @@
 {
-  "name": "test-alpha",
-  "homepage": "https://github.com/paulonoprienko/test-alfa/",
+  "name": "test-alfa",
+  "homepage": "https://paulonoprienko.github.io/test-alfa/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

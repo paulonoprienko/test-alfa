@@ -19,7 +19,6 @@ const CardList = ({currentTab}) => {
     const {cards} = useSelector(state => state.cards);
     const [loading, setLoading] = useState(false);
     const dispatch = useDispatch();
-    // const [] = null;
 
     useEffect(() => {
         dispatch(fetchCards());
@@ -27,14 +26,8 @@ const CardList = ({currentTab}) => {
 
     useEffect(() => {
         const intersectEl = document.getElementById('intersect-anchor');
-        let observer = null;
-        if(likedOnlyFilter) {
-            observer && observer.unobserve(intersectEl);
-            return;
-        }
-
-        observer = observeElement(intersectEl);
-
+        if(likedOnlyFilter) return;
+        const observer = observeElement(intersectEl);
         if(observer) {
             return function() {
                 observer.unobserve(intersectEl);

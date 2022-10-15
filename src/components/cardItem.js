@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleLikeCard, removeCard } from "../store/cardSlice";
-import { Card, CardActions, CardContent, IconButton, Typography, makeStyles, withStyles } from "@material-ui/core";
+import { Card, CardActions, CardContent, IconButton, Typography, makeStyles } from "@material-ui/core";
 import { FavoriteBorderOutlined, Favorite, Delete } from "@material-ui/icons";
 
 const useStyles = makeStyles({
